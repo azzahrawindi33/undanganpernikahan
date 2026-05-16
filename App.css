@@ -1,0 +1,693 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
+/* VARIABEL WARNA MEWAH */
+:root {
+  --color-primary: #1A2E35; /* Biru Navy Gelap */
+  --color-gold: #C5A880; /* Emas Lembut */
+  --color-gold-light: #E8D8C3;
+  --color-bg-light: #F9F8F6; /* Putih Gading */
+  --color-text-dark: #333333;
+  --color-text-gray: #666666;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-accent: 'Lora', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  text-align: center;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* --- ANIMASI --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* --- ELEMEN UMUM --- */
+.section-header {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  color: var(--color-primary);
+}
+
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 15px auto 0;
+}
+
+/* --- COVER SECTION (SAMPUL) --- */
+.cover-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Memanggil gambar prewed4.jpg */
+  background: url('/public/img2.jpeg') center 35%/cover no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.cover-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(26, 46, 53, 0.75); /* Overlay navy gelap yang elegan */
+}
+
+.cover-content {
+  position: relative;
+  z-index: 1;
+  padding: 50px 40px;
+  border: 1px solid rgba(197, 168, 128, 0.5); /* Border emas transparan */
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.05); /* Efek Kaca Buram */
+  backdrop-filter: blur(5px);
+  color: white;
+}
+
+.cover-subtitle {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  margin-bottom: 10px;
+}
+
+.cover-title {
+  font-size: 4rem;
+  color: white;
+  margin: 10px 0;
+}
+
+.cover-divider {
+  width: 40px;
+  height: 1px;
+  background-color: var(--color-gold);
+  margin: 20px auto 30px;
+}
+
+.to-text {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.guest-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin: 10px 0 40px;
+  color: var(--color-gold-light);
+}
+
+.open-button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid var(--color-gold);
+  padding: 12px 35px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.open-button:hover {
+  background-color: var(--color-gold);
+  color: var(--color-primary);
+}
+
+/* --- HERO SECTION (HALAMAN UTAMA) --- */
+.hero-section {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Memanggil gambar prewed5.jpg dengan efek parallax (fixed) */
+  background: url('/public/img3.jpeg') center/cover fixed no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  /* Gradasi putih gading dari transparan ke solid */
+  background: linear-gradient(to bottom, rgba(249, 248, 246, 0.3), rgba(249, 248, 246, 1));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 100px;
+}
+
+.hero-subtitle {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.hero-title {
+  font-size: 5.5rem;
+  color: var(--color-primary);
+  line-height: 1.1;
+  margin: 15px 0;
+}
+
+.hero-divider {
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 20px auto;
+}
+
+.hero-date {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-text-gray);
+}
+
+/* --- QURAN VERSE SECTION --- */
+.quran-section {
+  padding: 80px 20px;
+  background-color: var(--color-bg-light);
+}
+
+.quran-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.bismillah-text {
+  font-family: 'Amiri', serif;
+  font-size: 2.8rem;
+  color: var(--color-gold);
+  margin-bottom: 30px;
+}
+
+.arabic-text {
+  font-family: 'Amiri', serif;
+  font-size: 1.6rem;
+  line-height: 2.5;
+  color: var(--color-primary);
+  margin-bottom: 25px;
+}
+
+.translation-text {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-text-gray);
+  margin-bottom: 20px;
+}
+
+.surah-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* --- COUPLE SECTION (DUA KOLOM MEWAH) --- */
+.couple-section {
+  padding: 100px 20px;
+  background-color: white;
+}
+
+.couple-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.couple-card {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.couple-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 30px;
+}
+
+/* Efek Bingkai Melayang di Luar Foto */
+.image-frame {
+  position: absolute;
+  top: 15px;
+  left: -15px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--color-gold);
+  z-index: 0;
+  transition: all 0.5s ease;
+}
+
+.couple-photo-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  filter: grayscale(20%); /* Menurunkan saturasi sedikit agar terlihat estetik */
+  transition: all 0.5s ease;
+}
+
+.couple-card:hover .couple-photo-image {
+  filter: grayscale(0%);
+  transform: translate(-5px, 5px);
+}
+
+.couple-card:hover .image-frame {
+  transform: translate(5px, -5px);
+}
+
+.couple-info h3 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.parent-text {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--color-text-gray);
+  margin-bottom: 5px;
+}
+
+.parent-names {
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.couple-and-ornament {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  color: var(--color-gold-light);
+  padding: 0 20px;
+}
+
+/* --- EVENT DETAILS SECTION --- */
+.event-section {
+  padding: 100px 20px;
+  background-color: var(--color-bg-light);
+}
+
+.events {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.event-card {
+  flex: 1;
+  min-width: 300px;
+  /* Mengubah background putih menjadi warna krem/emas sangat lembut */
+  background: rgba(197, 168, 128, 0.08); 
+  padding: 50px 30px;
+  /* Memberikan garis bingkai emas yang lebih tegas */
+  border: 1px solid var(--color-gold); 
+  border-radius: 15px; /* Membuat sudut kotak sedikit melengkung */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  /* Menambahkan bayangan halus agar kotak terasa timbul */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  /* Warnanya jadi sedikit lebih tebal saat cursor diarahkan (hover) */
+  background: rgba(197, 168, 128, 0.15); 
+}
+
+.event-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.event-card h3 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: var(--color-primary);
+}
+
+.event-details-text {
+  margin-bottom: 30px;
+}
+
+.event-time {
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 10px;
+}
+
+.event-location {
+  color: var(--color-text-gray);
+  font-size: 0.95rem;
+}
+
+.map-button {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 10px 25px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.map-button:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* --- RSVP SECTION --- */
+.rsvp-section {
+  padding: 100px 20px;
+  background-color: white;
+}
+
+.rsvp-box {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background-color: var(--color-bg-light);
+  border: 1px solid var(--color-gold-light);
+}
+
+.rsvp-subtitle {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--color-text-gray);
+  margin-bottom: 40px;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rsvp-input, .rsvp-select {
+  padding: 15px;
+  border: 1px solid #ddd;
+  background: white;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  transition: border-color 0.3s;
+}
+
+.rsvp-input:focus, .rsvp-select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.rsvp-submit {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 15px;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.rsvp-submit:hover {
+  background-color: var(--color-gold);
+}
+
+/* --- FOOTER --- */
+.footer {
+  padding: 80px 20px 40px;
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.footer-main-text {
+  font-family: var(--font-accent);
+  font-size: 1rem;
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: #E8D8C3;
+}
+
+.footer-joke-text {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4); 
+  margin-bottom: 40px;
+}
+
+.footer-divider {
+  width: 30px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 auto 20px;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS (UNTUK TAMPILAN HP) --- */
+@media (max-width: 768px) {
+  .cover-title { font-size: 3rem; }
+  .hero-title { font-size: 3.5rem; }
+  .couple-and-ornament { display: none; }
+  .couple-container { gap: 60px; }
+  .image-frame { display: none; }
+}
+
+.event-date {
+  font-family: 'Lora', serif; /* Menggunakan font serif agar klasik */
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #d4af37; /* Warna emas yang elegan */
+  letter-spacing: 1.5px; /* Memberikan jarak antar huruf */
+  
+  /* Membuat aksen garis pembatas atas dan bawah */
+  border-top: 1px solid #e0d5c1;
+  border-bottom: 1px solid #e0d5c1;
+  padding: 8px 0;
+  margin: 12px auto; 
+  display: inline-block;
+}
+
+.custom-image-icon {
+  width: 90px; /* Anda bisa mengubah angka ini untuk memperbesar/memperkecil ikon */
+  height: auto;
+  margin-bottom: 10px;
+  object-fit: contain;
+  /* Opsional: menambahkan sedikit efek drop shadow agar ikon terlihat lebih menyatu */
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.05)); 
+}
+
+/* Tombol Musik Mengambang */
+.music-toggle-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-gold, #d4af37); /* Sesuaikan warnanya */
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.music-toggle-btn:hover {
+  transform: scale(1.1);
+}
+
+/* =========================================
+   8. LOVE STORY SECTION (ZIG-ZAG LAYOUT)
+   ========================================= */
+.story-section {
+  padding: 100px 20px;
+  background-color: var(--cream); /* Supaya beda dengan background section lain */
+}
+
+.story-timeline {
+  max-width: 1000px; /* Lebar maksimal konten */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 100px; /* Jarak vertikal antar cerita */
+}
+
+/* KUNCI ZIG-ZAG: Memaksa elemen menjadi menyamping (baris) */
+.story-row {
+  display: flex !important;
+  flex-direction: row !important; 
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* Membalik posisi kiri-kanan untuk efek zig-zag */
+.story-row.reverse {
+  flex-direction: row-reverse !important;
+}
+
+.story-image-col {
+  width: 45%; /* Membagi lebar kolom foto */
+  flex-shrink: 0;
+}
+
+.story-img {
+  width: 100%;
+  height: 450px; /* Tinggi foto diseragamkan */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(21, 34, 40, 0.1);
+  transition: transform 0.4s ease;
+}
+
+.story-row:hover .story-img {
+  transform: translateY(-10px);
+}
+
+.story-text-col {
+  width: 50%; /* Membagi lebar kolom teks */
+  text-align: left;
+}
+
+/* Mengatur rata teks agar seimbang dengan posisi gambar */
+.story-row.reverse .story-text-col {
+  text-align: right;
+}
+
+.story-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--navy);
+  margin-bottom: 15px;
+}
+
+.story-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--gray);
+}
+
+/* =========================================
+   RESPONSIVE: BERUBAH MENURUN HANYA DI HP
+   ========================================= */
+@media (max-width: 768px) {
+  .story-row, .story-row.reverse {
+    flex-direction: column !important; /* Paksa menurun di layar sempit */
+    gap: 30px;
+  }
+  .story-image-col, .story-text-col {
+    width: 100%;
+    text-align: center !important; /* Rata tengah di HP */
+  }
+  .story-img {
+    height: 350px;
+  }
+}
+/* ==========================================================================
+   EFEK ANIMASI KUSTOM TAMBAHAN (DICKY & RINDI WEDDING)
+   ========================================================================== */
+
+/* 1. Animasi Melayang untuk Ikon */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.fx-float {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+/* 2. Animasi Zoom Sinematik untuk Background Foto */
+@keyframes kenburns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+/* Pasang class ini pada div kontainer luar foto background */
+.fx-kenburns {
+  animation: kenburns 20s ease-out infinite alternate;
+}
+
+/* 3. Animasi Berdenyut Glow Emas untuk Tombol Utama */
+@keyframes goldGlow {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+.fx-glow {
+  animation: goldGlow 2s infinite;
+}
+
+/* Tambahan: Transisi halus saat hover kartu mempelai */
+.couple-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
+}
+.couple-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
